@@ -1,0 +1,68 @@
+body {
+    background-image: url("beautiful-milky-way-night-sky.jpg");
+    display: flex;
+    justify-content: center;
+}
+
+.body-content {
+    width: 800px;
+    min-height: 900px;
+    border: 10px solid #fff;
+    background-color: #fff;
+}
+
+.header-text {
+    height: 100px;
+    background: url("3d-grunge-room-interior-with-spotlight-smoky-atmosphere-background.jpg") center center / cover;
+    font-size: 30px;
+}
+
+.center-text {
+    color: honeydew;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+a {
+    float: left;
+    color: honeydew;
+    padding: 14px 16px;
+}
+
+.main-content {
+    display: flex;
+}
+
+img {
+    width: 250px;
+    margin-top: 20px;
+}
+
+p {
+    margin: 20px;
+    text-align: justify;
+    font-size: 26px;
+}
+
+li {
+    display: inline;
+    list-style-type: none;
+    margin: 20px;
+    padding: 10px;
+    background-color: honeydew;
+}
+
+footer {
+    background-color: #333;
+    height: 30px;
+    width: 100%;
+}
