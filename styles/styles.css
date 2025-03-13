@@ -1,5 +1,5 @@
 body {
-    background-image: url("beautiful-milky-way-night-sky.jpg");
+    background-image: url("../beautiful-milky-way-night-sky.jpg");
     display: flex;
     justify-content: center;
 }
