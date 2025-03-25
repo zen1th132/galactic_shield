@@ -1,7 +1,12 @@
 body {
-    background-image: url("../beautiful-milky-way-night-sky.jpg");
+    background-image: url("../images/beautiful-milky-way-night-sky.jpg");
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .body-content {
@@ -9,12 +14,19 @@ body {
     min-height: 900px;
     border: 10px solid #fff;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header-text {
     height: 100px;
-    background: url("3d-grunge-room-interior-with-spotlight-smoky-atmosphere-background.jpg") center center / cover;
+    background: url("../images/3d-grunge-room-interior-with-spotlight-smoky-atmosphere-background.jpg") center center / cover;
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
 .center-text {
@@ -25,21 +37,42 @@ body {
 }
 
 nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
     background-color: #333;
+    padding: 10px 0;
 }
 
-a {
-    float: left;
+nav ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
     color: honeydew;
-    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+}
+
+nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
 }
 
 .main-content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    padding: 20px;
 }
 
 img {
@@ -53,16 +86,14 @@ p {
     font-size: 26px;
 }
 
-li {
-    display: inline;
-    list-style-type: none;
-    margin: 20px;
-    padding: 10px;
-    background-color: honeydew;
-}
-
 footer {
     background-color: #333;
     height: 30px;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: white;
+    text-align: center;
+    line-height: 30px;
 }

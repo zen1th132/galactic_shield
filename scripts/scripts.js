@@ -3,7 +3,7 @@ function generateAliens(rows, columns) {
     const imageContainer = document.getElementById("imageContainer");
     imageContainer.innerHTML = "";
 
-    let rowDirections = []; 
+    let rowDirections = [];
 
     for (let row = 0; row < rows; row++) {
         let rowDiv = document.createElement("div");
@@ -11,11 +11,12 @@ function generateAliens(rows, columns) {
         rowDiv.style.display = "flex";
         rowDiv.style.justifyContent = "center";
         rowDiv.style.position = "absolute";
-        rowDiv.style.top = `${row * 80}px`; 
+        rowDiv.style.top = `${row * 80}px`;
+        rowDiv.style.left = "0px";
 
-        let numAliens = Math.floor(Math.random() * 6) + 5; 
-        rowDiv.dataset.direction = row % 2 === 0 ? 1 : -1; 
-        rowDirections.push(rowDiv.dataset.direction);
+        let numAliens = Math.floor(Math.random() * 6) + 5;
+        rowDiv.dataset.direction = row % 2 === 0 ? 1 : -1;
+        rowDirections.push(parseInt(rowDiv.dataset.direction));
 
         for (let col = 0; col < numAliens; col++) {
             const image = document.createElement("img");
@@ -28,26 +29,29 @@ function generateAliens(rows, columns) {
 
     let step = 20;
     let moveDown = 10;
-
-    moving = setInterval(function () {
+    let moving = setInterval(function () {
         let rows = document.querySelectorAll(".alienRow");
         rows.forEach((rowDiv, index) => {
-            let direction = rowDirections[index]; 
-            let currentLeft = parseInt(rowDiv.style.left || "0");
+            let direction = rowDirections[index];
+            let currentLeft = parseInt(rowDiv.style.left);
             let currentTop = parseInt(rowDiv.style.top);
 
-            rowDiv.style.left = `${currentLeft + step * direction}px`;
+            let newLeft = currentLeft + step * direction;
+            rowDiv.style.left = `${newLeft}px`;
             rowDiv.style.top = `${currentTop + moveDown}px`;
 
-            if (currentLeft > window.innerWidth - 200 || currentLeft < 0) {
+            if (newLeft > window.innerWidth - rowDiv.offsetWidth || newLeft < 0) {
                 rowDirections[index] *= -1;
             }
         });
 
         const divRect = imageContainer.getBoundingClientRect();
-        const shipRect = ship.getBoundingClientRect();
+        const ship = document.getElementById("ship");
+        if (!ship) return;
 
+        const shipRect = ship.getBoundingClientRect();
         if (divRect.bottom > shipRect.top) {
+            clearInterval(moving);
             resetGame("The game is over!");
         }
     }, 500);
